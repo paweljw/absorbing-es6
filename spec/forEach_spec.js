@@ -23,4 +23,16 @@ describe('forEach', () => {
     numbers.forEach((number) => { sum += number })
     expect(sum).toBe(10)
   })
+
+  it('calculates a series of image areas', () => {
+    let images = [
+      { height: 10, width: 30 },
+      { height: 20, width: 90 },
+      { height: 54, width: 32 }
+    ]
+    let areas = []
+
+    images.forEach((image) => { areas.push(image.height * image.width) })
+    expect(areas).toEqual([300, 1800, 1728])
+  })
 })
