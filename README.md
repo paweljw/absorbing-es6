@@ -1,5 +1,6 @@
 Absorbing ES6
 =============
+[![Build Status](https://travis-ci.org/paweljw/absorbing-es6.svg?branch=master)](https://travis-ci.org/paweljw/absorbing-es6)
 
 I decided to learn ES6 properly, brick-and-mortar, from the ground up - using this: [https://www.udemy.com/javascript-es6-tutorial/learn/v4/]. So why not take you along for the ride?
 
