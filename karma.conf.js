@@ -21,8 +21,7 @@ module.exports = function (config) {
             }
           }
         ]
-      },
-      watch: true
+      }
     }
   })
 }
