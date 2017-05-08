@@ -8,7 +8,7 @@ module.exports = function (config) {
     preprocessors: {
       'spec/**/*.js': ['webpack']
     },
-    browsers: ['PhantomJS2'],
+    browsers: ['PhantomJS'],
     webpack: {
       module: {
         loaders: [
