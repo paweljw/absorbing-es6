@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "karma start"
+    "test": "karma start --single-run",
+    "karma": "karma start"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

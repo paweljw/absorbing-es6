@@ -1,6 +1,7 @@
 module.exports = function (config) {
   config.set({
     frameworks: ['jasmine'],
+
     files: [
       'spec/**/*_spec.js'
     ],
@@ -8,7 +9,9 @@ module.exports = function (config) {
     preprocessors: {
       'spec/**/*.js': ['webpack']
     },
+
     browsers: ['PhantomJS'],
+
     webpack: {
       module: {
         loaders: [
@@ -21,7 +24,8 @@ module.exports = function (config) {
             }
           }
         ]
-      }
+      },
+      watch: true
     }
   })
 }
