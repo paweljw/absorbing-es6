@@ -16,4 +16,11 @@ describe('forEach', () => {
 
     expect(result.backlog).toEqual(baseline.backlog)
   })
+
+  it('very inefficiently sums an array of numbers', () => {
+    let numbers = [1, 2, 3, 4]
+    let sum = 0
+    numbers.forEach((number) => { sum += number })
+    expect(sum).toBe(10)
+  })
 })
