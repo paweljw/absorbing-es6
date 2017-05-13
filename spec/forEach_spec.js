@@ -1,18 +1,16 @@
 /* global describe, it, expect */
 
-import { Console } from './support/console'
-
 let colors = [ 'red', 'green', 'blue' ]
-let baseline = new Console()
+let baseline = []
 
 for (let i = 0; i < colors.length; i++) {
-  baseline.log(colors[i])
+  baseline.push(colors[i])
 }
 
 describe('forEach', () => {
   it('behaves exactly like a for loop', () => {
-    let result = new Console()
-    colors.forEach((color) => { result.log(color) })
+    let result = []
+    colors.forEach((color) => { result.push(color) })
 
     expect(result.backlog).toEqual(baseline.backlog)
   })

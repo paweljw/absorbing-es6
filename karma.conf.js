@@ -3,29 +3,33 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
 
     files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
       'spec/**/*_spec.js'
     ],
 
-    preprocessors: {
-      'spec/**/*.js': ['webpack']
-    },
-
     browsers: ['PhantomJS'],
 
-    webpack: {
-      module: {
-        loaders: [
-          {
-            test: /\.js/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015']
-            }
-          }
-        ]
+    preprocessors: {
+      'spec/**/*.js': ['babel']
+    },
+
+    plugins: [
+      'karma-babel-preprocessor',
+      'karma-jasmine',
+      'karma-phantomjs-launcher'
+    ],
+
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015'],
+        sourceMap: 'inline'
       },
-      watch: true
+      filename: function (file) {
+        return file.originalPath.replace(/\.js$/, '.es5.js')
+      },
+      sourceFileName: function (file) {
+        return file.originalPath
+      }
     }
   })
 }
