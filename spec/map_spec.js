@@ -1,5 +1,12 @@
 /* global describe, it, expect */
 
+import { pluck } from './support/pluck'
+
+let cars = [
+  {name: 'Buick', price: 'cheap'},
+  {name: 'Camaro', price: 'expensive'}
+]
+
 describe('map', () => {
   it('doubles the numbers', () => {
     let numbers = [ 1, 2, 3 ]
@@ -8,11 +15,14 @@ describe('map', () => {
   })
 
   it('plucks properties', () => {
-    let cars = [
-      {name: 'Buick', price: 'cheap'},
-      {name: 'Camaro', price: 'expensive'}
-    ]
     let prices = cars.map(car => { return car.price })
+    expect(prices).toEqual(['cheap', 'expensive'])
+  })
+})
+
+describe('pluck', () => {
+  it('plucks properties', () => {
+    let prices = pluck(cars, 'price')
     expect(prices).toEqual(['cheap', 'expensive'])
   })
 })

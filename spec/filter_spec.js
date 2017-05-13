@@ -1,5 +1,7 @@
 /* global describe, it, expect */
 
+import { reject } from './support/reject'
+
 let produce = [
   {name: 'cucumber', type: 'vegetable'},
   {name: 'banana', type: 'fruit'},
@@ -38,5 +40,13 @@ describe('filter', () => {
   it('selects vegetables which are in stock with a price more than 10', () => {
     let cart = complicatedProduce.filter(product => { return product.type === 'vegetable' && product.quantity > 0 && product.price > 10 })
     expect(cart).toEqual([{name: 'celery', type: 'vegetable', quantity: 30, price: 13}])
+  })
+})
+
+describe('reject', () => {
+  it('rejects numbers below 15', () => {
+    let numbers = [10, 20, 30]
+    let numbersAboveFifteen = reject(numbers, number => { return number < 15 })
+    expect(numbersAboveFifteen).toEqual([20, 30])
   })
 })
