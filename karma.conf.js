@@ -18,7 +18,7 @@ module.exports = function (config) {
     coverageReporter: {
       dir: '.',
       reporters: [
-        // { type: 'html', subdir: 'coverage' },
+        { type: 'text', subdir: 'coverage' },
         { type: 'lcovonly', subdir: '.', file: 'lcov.info' }
       ]
     },
@@ -28,7 +28,7 @@ module.exports = function (config) {
       configure: function browserify (bundle) {
         bundle.once('prebundle', function prebundle () {
           bundle.transform('babelify', {presets: ['es2015'], sourceMapsAbsolute: true})
-          bundle.transform('coverageify', { ignores: new RegExp(__dirname), embedSource: true })
+          bundle.transform('coverageify', { ignores: [new RegExp(require('path').join(__dirname, 'spec'))] })
         })
       }
     }
