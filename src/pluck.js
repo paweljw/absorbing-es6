@@ -1,5 +1,5 @@
 export function pluck (array, property) {
-  return array.map(element => { return element[property] })
+  return array.map(element => element[property])
 }
 
 export function reducePluck (array, property) {

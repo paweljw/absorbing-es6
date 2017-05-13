@@ -8,7 +8,7 @@ export function findWhere (array, criteria) {
 
 // Supports a whole hash map of criteria
 export function betterFindWhere (array, criteria) {
-  let criteriaArray = hashToArray(criteria)
+  const criteriaArray = hashToArray(criteria)
   return array.find(element => {
     return criteriaArray.every(criterion => {
       let property = criterion[0]
@@ -20,8 +20,6 @@ export function betterFindWhere (array, criteria) {
 
 // Converts {one: 'two'} to [['one', 'two']]
 function hashToArray (hash) {
-  let keys = Object.keys(hash)
-  return keys.map(key => {
-    return [key, hash[key]]
-  })
+  const keys = Object.keys(hash)
+  return keys.map(key => [key, hash[key]])
 }
