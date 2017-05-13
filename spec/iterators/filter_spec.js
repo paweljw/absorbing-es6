@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 
-import { reject } from './../support/reject'
+import { reject, reduceReject } from './../support/reject'
 
 let produce = [
   {name: 'cucumber', type: 'vegetable'},
@@ -47,6 +47,14 @@ describe('reject', () => {
   it('rejects numbers below 15', () => {
     let numbers = [10, 20, 30]
     let numbersAboveFifteen = reject(numbers, number => { return number < 15 })
+    expect(numbersAboveFifteen).toEqual([20, 30])
+  })
+})
+
+describe('reduceReject', () => {
+  it('rejects numbers below 15', () => {
+    let numbers = [10, 20, 30]
+    let numbersAboveFifteen = reduceReject(numbers, number => { return number < 15 })
     expect(numbersAboveFifteen).toEqual([20, 30])
   })
 })
