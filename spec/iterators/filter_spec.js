@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 
-import { reject } from './support/reject'
+import { reject } from './../support/reject'
 
 let produce = [
   {name: 'cucumber', type: 'vegetable'},

@@ -1,7 +1,7 @@
 /* global describe, it, expect */
 
-import { Car } from './support/Car'
-import { findWhere, betterFindWhere } from './support/findWhere'
+import { Car } from './../support/Car'
+import { findWhere, betterFindWhere } from './../support/findWhere'
 
 let users = [
   {name: 'Jill', id: 1},
