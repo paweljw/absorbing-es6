@@ -7,12 +7,12 @@
 // ** e.g. ")(" //=> unbalanced
 
 export function balancedParens (string) {
-  return string.split('').reduce((accumulator, character) => {
+  return !string.split('').reduce((accumulator, character) => {
     if (accumulator < 0) { return accumulator }
     if (character === '(') {
-      return accumulator + 1
+      return ++accumulator
     } else if (character === ')') {
-      return accumulator - 1
-    } else { return -1 }
-  }, 0) === 0
+      return --accumulator
+    } else { return accumulator }
+  }, 0)
 }

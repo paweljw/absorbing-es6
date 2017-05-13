@@ -22,4 +22,8 @@ describe('balancedParens', () => {
   it('says )( is unbalanced', () => {
     expect(balancedParens(')(')).toBeFalsy()
   })
+
+  it('says ((one(two))) is balanced', () => {
+    expect(balancedParens('((one(two)))')).toBeTruthy()
+  })
 })
