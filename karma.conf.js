@@ -10,8 +10,7 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
 
     preprocessors: {
-      'spec/**/*.js': ['browserify'],
-      'src/**/*.js': ['coverage']
+      'spec/**/*.js': ['browserify']
     },
 
     reporters: ['mocha', 'coverage'],
@@ -19,7 +18,7 @@ module.exports = function (config) {
     coverageReporter: {
       dir: '.',
       reporters: [
-        { type: 'html', subdir: 'coverage' },
+        // { type: 'html', subdir: 'coverage' },
         { type: 'lcovonly', subdir: '.', file: 'lcov.info' }
       ]
     },
@@ -28,7 +27,8 @@ module.exports = function (config) {
       debug: true,
       configure: function browserify (bundle) {
         bundle.once('prebundle', function prebundle () {
-          bundle.transform('babelify', {presets: ['es2015']})
+          bundle.transform('babelify', {presets: ['es2015'], sourceMapsAbsolute: true})
+          bundle.transform('coverageify', { ignores: new RegExp(__dirname), embedSource: true })
         })
       }
     }
