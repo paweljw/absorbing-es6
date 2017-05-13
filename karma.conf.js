@@ -10,10 +10,19 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
 
     preprocessors: {
-      'spec/**/*.js': ['browserify']
+      'spec/**/*.js': ['browserify'],
+      'src/**/*.js': ['coverage']
     },
 
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
+
+    coverageReporter: {
+      dir: '.',
+      reporters: [
+        { type: 'html', subdir: 'coverage' },
+        { type: 'lcovonly', subdir: '.', file: 'lcov.info' }
+      ]
+    },
 
     browserify: {
       debug: true,
