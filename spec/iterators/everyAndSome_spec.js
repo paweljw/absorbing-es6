@@ -1,5 +1,8 @@
 /* global describe, it, expect */
 
+import { reduceEvery } from './../support/reduceEvery'
+import { reduceSome } from './../support/reduceSome'
+
 let computers = [
   {name: 'Apple', ram: 24},
   {name: 'Compaq', ram: 4},
@@ -18,6 +21,20 @@ describe('every', () => {
 describe('some', () => {
   it('checks whether any computers can run program', () => {
     let anyComputersCanRunProgram = computers.some(computer => { return computer.ram > TO_RUN_PROGRAM })
+    expect(anyComputersCanRunProgram).toBeTruthy()
+  })
+})
+
+describe('reduceEvery', () => {
+  it('checks whether all computers can run program', () => {
+    let allComputersCanRunProgram = reduceEvery(computers, computer => { return computer.ram > TO_RUN_PROGRAM })
+    expect(allComputersCanRunProgram).toBeFalsy()
+  })
+})
+
+describe('reduceSome', () => {
+  it('checks whether any computers can run program', () => {
+    let anyComputersCanRunProgram = reduceSome(computers, computer => { return computer.ram > TO_RUN_PROGRAM })
     expect(anyComputersCanRunProgram).toBeTruthy()
   })
 })
