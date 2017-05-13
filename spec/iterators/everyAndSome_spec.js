@@ -1,7 +1,7 @@
 /* global describe, it, expect */
 
-import { reduceEvery } from './../support/reduceEvery'
-import { reduceSome } from './../support/reduceSome'
+import { reduceEvery } from './../../src/reduceEvery'
+import { reduceSome } from './../../src/reduceSome'
 
 let computers = [
   {name: 'Apple', ram: 24},

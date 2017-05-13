@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 
-import { pluck, reducePluck } from './../support/pluck'
+import { pluck, reducePluck } from './../../src/pluck'
 
 let cars = [
   {name: 'Buick', price: 'cheap'},
