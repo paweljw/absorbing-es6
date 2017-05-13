@@ -13,6 +13,8 @@ module.exports = function (config) {
       'spec/**/*.js': ['browserify']
     },
 
+    reporters: ['mocha'],
+
     browserify: {
       debug: true,
       configure: function browserify (bundle) {
