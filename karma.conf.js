@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    frameworks: ['jasmine'],
+    frameworks: ['browserify', 'jasmine'],
 
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
@@ -10,25 +10,15 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
 
     preprocessors: {
-      'spec/**/*.js': ['babel']
+      'spec/**/*.js': ['browserify']
     },
 
-    plugins: [
-      'karma-babel-preprocessor',
-      'karma-jasmine',
-      'karma-phantomjs-launcher'
-    ],
-
-    babelPreprocessor: {
-      options: {
-        presets: ['es2015'],
-        sourceMap: 'inline'
-      },
-      filename: function (file) {
-        return file.originalPath.replace(/\.js$/, '.es5.js')
-      },
-      sourceFileName: function (file) {
-        return file.originalPath
+    browserify: {
+      debug: true,
+      configure: function browserify (bundle) {
+        bundle.once('prebundle', function prebundle () {
+          bundle.transform('babelify', {presets: ['es2015']})
+        })
       }
     }
   })
