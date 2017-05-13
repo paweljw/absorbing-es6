@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 
-import { pluck } from './../support/pluck'
+import { pluck, reducePluck } from './../support/pluck'
 
 let cars = [
   {name: 'Buick', price: 'cheap'},
@@ -23,6 +23,13 @@ describe('map', () => {
 describe('pluck', () => {
   it('plucks properties', () => {
     let prices = pluck(cars, 'price')
+    expect(prices).toEqual(['cheap', 'expensive'])
+  })
+})
+
+describe('reducePluck', () => {
+  it('plucks properties', () => {
+    let prices = reducePluck(cars, 'price')
     expect(prices).toEqual(['cheap', 'expensive'])
   })
 })
