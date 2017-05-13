@@ -1,6 +1,7 @@
 /* global describe, it, expect */
 
 import { Car } from './support/Car'
+import { findWhere } from './support/findWhere'
 
 let users = [
   {name: 'Jill', id: 1},
@@ -23,6 +24,18 @@ describe('find', () => {
 
   it('finds a camaro', () => {
     let camaro = cars.find(car => { return car.model === 'Camaro' })
+    expect(camaro.model).toBe('Camaro')
+  })
+})
+
+describe('findWhere', () => {
+  it('finds Alex', () => {
+    let alex = findWhere(users, { name: 'Alex' })
+    expect(alex.id).toBe(2)
+  })
+
+  it('finds a camaro', () => {
+    let camaro = findWhere(cars, { model: 'Camaro' })
     expect(camaro.model).toBe('Camaro')
   })
 })
