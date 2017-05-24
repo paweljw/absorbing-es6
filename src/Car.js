@@ -3,4 +3,8 @@ export class Car {
     this.model = model
     this.year = year
   }
+
+  drive () {
+    return 'vrooom'
+  }
 }
